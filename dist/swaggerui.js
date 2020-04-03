@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
-const swagger_client_1 = require("swagger-client");
+const swaggerjs = require("swagger-client");
 const request_1 = require("request");
 module.exports = function registerNode(RED) {
     function SwaggerUiNode(config) {
@@ -52,7 +52,7 @@ module.exports = function registerNode(RED) {
                     }
                 }
             }
-            swagger_client_1.swaggerjs(url).then(function (client) {
+            swaggerjs(url).then(function (client) {
                 console.log('client.spec.paths: ' + JSON.stringify(client.spec.paths)); // Check for missing params
                 let missingParams = getMissingParams(findApiReqParams(api, resource, client), params);
                 console.log('missingParams: ', missingParams);

@@ -1,7 +1,7 @@
 
 import { Red, Node, NodeProperties } from 'node-red';
 import * as path from 'path';
-import { swaggerjs } from 'swagger-client';
+import * as swaggerjs from 'swagger-client';
 import { request } from 'request';
 
 interface SwaggerUiProps extends NodeProperties {
