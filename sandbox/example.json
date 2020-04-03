@@ -1,0 +1,77 @@
+[
+    {
+        "id": "61e657e8.dedf18",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "738367a4.fb0ad8",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/ws/bala",
+        "wholemsg": "false"
+    },
+    {
+        "id": "bfcb9955.793498",
+        "type": "xray",
+        "z": "61e657e8.dedf18",
+        "name": "",
+        "url": "https://blog.ycombinator.com/",
+        "cssSelector": ".post",
+        "cssSelectors": "[{\"title\":\"h1 a\",\"link\":\".article-title@href\",\"new\":{\"date\":\"div:nth-child(3) > div > span\",\"tag\":\"div:nth-child(3) > div > div > ul > li > a\"}}]",
+        "cssSelectorsType": "json",
+        "paginate": ".nav-previous a@href",
+        "limit": "2",
+        "abortValidator": "",
+        "delayFrom": "1",
+        "delayTo": "10",
+        "concurrency": "2",
+        "throttle": "1",
+        "throttlePerMs": "10",
+        "timeoutMs": "1000",
+        "x": 410,
+        "y": 40,
+        "wires": [
+            [
+                "b7f6037e.afb52"
+            ]
+        ]
+    },
+    {
+        "id": "323f8b99.3630f4",
+        "type": "inject",
+        "z": "61e657e8.dedf18",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 260,
+        "y": 40,
+        "wires": [
+            [
+                "bfcb9955.793498"
+            ]
+        ]
+    },
+    {
+        "id": "b7f6037e.afb52",
+        "type": "debug",
+        "z": "61e657e8.dedf18",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "x": 570,
+        "y": 40,
+        "wires": []
+    }
+]
