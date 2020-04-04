@@ -50,7 +50,7 @@ pre {
     <div class="hidden" id="swaggerclient-paramssection">
         <hr>
         <h5 data-i18n="swaggerClient.label.parameters">Parameters</h5>
-
+        <my-app><my-app>
         <div class="" id="swaggerclient-paramslist" style="margin-left:25px;">
             <table id="swaggerclient-paramslisttable" style="width: 100%">
                 <tr>
@@ -93,6 +93,30 @@ pre {
         oneditprepare: function() {
             var node = this;
             var swaggerClient;
+
+            $( document ).on( "myCustomEvent", {
+
+            }, function( event, detail ) {
+                console.log( event.detail.toString() );
+
+                console.log( event.detail );
+
+                console.log( JSON.stringify(event.detail ));
+            });
+
+
+            $.when(
+                $.getScript( "http://localhost:8080/element.js"),
+                $.Deferred(function( deferred ){
+                    $( deferred.resolve );
+                })
+            ).done(function(){
+            //    window.Apiko.onImageCropperLoad(node);
+            }).fail(function(jqxhr, settings, exception ){
+                console.log('Fail of code load from:[' + fileName + ']', exception)
+            });
+
+
 
             function setupClient(url, callback){
 
@@ -306,6 +330,7 @@ pre {
             }
 
             function convertObjectToText(obj){
+              console.log('obj', JSON.stringify(obj));
                 var convertedObj = {};
                 for(var p in obj.properties){
                     var currProp = obj.properties[p];
@@ -508,6 +533,7 @@ pre {
                                 paramList = {};
                             }
                             paramList[id] = val;
+console.log(    'paramList',                        paramList);
                             paramList['_isModel'] = true;
                         }
                     } else{
